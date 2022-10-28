@@ -5,7 +5,7 @@ import Image from 'react-bootstrap/Image';
 import { FaEye, FaRegBookmark, FaShareAlt, FaStar } from "react-icons/fa";
 
 const NewsSummaryCart = ({news}) => {
-    const {title, rating, _id, details, total_view, author, image_url,} = news
+    const {title, rating, _id, total_view, author, image_url,} = news
     return (
         <Card className="mb-4">
         <Card.Header className='d-flex justify-content-between align-items-center'>
@@ -31,9 +31,9 @@ const NewsSummaryCart = ({news}) => {
           <Card.Img variant="top" src={image_url} />
           <Card.Text>
            {
-           details.length > 200 ? 
-           <>{details.slice(0, 250) + '...'} <Link to={`/news/${_id}`}>Read More</Link></>
-           : {details}
+          news?.details?.length > 200 ? 
+           <>{news?.details?.slice(0, 250) + '...'} <Link to={`/news/${_id}`}>Read More</Link></>
+           : <p>not found</p>
            }
           </Card.Text>
         </Card.Body>
